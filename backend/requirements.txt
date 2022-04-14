@@ -1,0 +1,8 @@
+keyboard==0.13.5
+mediapipe==0.8.3
+numpy==1.19.3
+openai==0.8.0
+opencv_python==4.5.5.64
+pyttsx3==2.90
+SpeechRecognition==3.8.1
+tensorflow==2.6.2
