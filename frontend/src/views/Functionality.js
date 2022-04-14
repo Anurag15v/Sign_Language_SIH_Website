@@ -64,7 +64,7 @@ function Functionality() {
     }
     const startdetection = () => {
         const data = new FormData();
-        data.append("detect", "Detect");
+        data.append("stop", "Stop/Start");
         fetch('http://localhost:5000/requests', {
             method: 'POST',
             body: data
