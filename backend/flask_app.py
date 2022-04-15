@@ -114,8 +114,8 @@ def predict_show(img):
 
 
 global capture, rec_frame, switch, detect, rec, out
-switch = 1
-detect = 0
+switch = 0
+detect = 1
 
 # make shots directory to save pics
 try:
@@ -198,6 +198,10 @@ def video_feed():
 
 @socketio.on('message')
 def handleMessage(msg):
+    global switch, camera
+    if(msg=='User has connected'):
+        switch = 0
+        camera.release()
     print('Message: ' + msg)
     if(msg == "Backspace"):
         os.environ['backspace'] = "1"
@@ -267,8 +271,10 @@ def tasks():
         elif request.form.get('stop') == 'Stop/Start':
             switch = not switch
             if(switch == 1):
-                camera = cv2.VideoCapture(0)
+                print('switch set to 1')
+                camera = cv2.VideoCapture(-1)
             else:
+                print('switch not set to 1')
                 camera.release()
 
     return make_response("done", 200)
