@@ -64,7 +64,7 @@ function Functionality() {
     }
     const startdetection = () => {
         const data = new FormData();
-        data.append("stop", "Stop/Start");
+        data.append("detect", "Detect");
         fetch('http://localhost:5000/requests', {
             method: 'POST',
             body: data
@@ -122,20 +122,21 @@ function Functionality() {
                             : null}
                         {work === "Speech_Sign" ?
                             <>
-                                <button color="dark" wideMobile onClick={() => { sendspeech(transcript); }}>
+                                <Button style={{ marginTop: "20px", marginRight: "10px" }} color="dark" wideMobile onClick={() => { sendspeech(transcript); }}>
                                     ReStart/Stop
-                                </button>
-                                <button color="dark" wideMobile
+                                </Button>
+                                <Button color="dark" wideMobile
                                     onClick={() => { resetTranscript(); setwork(""); setbool(false); setstartstop(true); }}>
                                     Reset
-                                </button>{bool === true ? <img src="http://localhost:5000/display_video" /> : null}
+                                </Button>{bool === true ? <img src="http://localhost:5000/display_video" /> : null}
                             </> : null}
 
                         {work === "Sign_Text" ?
                             <img src="http://localhost:5000/video_feed" /> : null}
                         <h2 id="output">{message}</h2>
                         <h1 id="final_output">{finalmessage}</h1>
-                        <h1 id="Speech">{transcript}</h1>
+                        {work === "Speech_Sign" ?
+                            <h1 id="Speech">{transcript}</h1> : null}
                     </div>
                 </div>
                 {work === "Sign_Text" ?

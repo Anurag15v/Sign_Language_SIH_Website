@@ -54,21 +54,21 @@ const Hero = ({
       className={outerClasses}
     >
       <div className="container-sm">
-        <div className={innerClasses}>
+        <div >
           <div className="hero-content">
             <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
-              Powerfull Sign Language Detection Software<span className="text-color-primary"> Shakti</span>
+              Powerful Sign Language Detection Software<span className="text-color-primary"> Shakti</span>
             </h1>
             <div className="container-xs">
               <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400">
-                Sign Language Detection software with Sign to Text and Speech to Sign Modes.Let's unite to support our specially abled friends.
+                Sign Language Detection software with Sign to Text and Speech to Sign Modes.<span style={{ color: "white" }}>Let's unite to support our specially abled friends.</span>
               </p>
               <Functionality />
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }
 
